@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var readLine = require("readline");
-var config = require('../src/config');
+const mongoose = require('mongoose');
+const readLine = require("readline");
+const config = require('../src/config');
 const DB_URL = config.DB_URL;
 
 if (process.platform === "win32"){

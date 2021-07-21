@@ -1,7 +1,7 @@
 {
   "name": "server",
-  "version": "1.0.0",
-  "description": "MobiCashZen server",
+  "version": "1.0.1",
+  "description": "BlueBeak server",
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
@@ -10,18 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LevButkovskiy/MobiCashZen.git"
+    "url": "git+https://github.com/LevButkovskiy/bluebeakstd_server.git"
   },
-  "keywords": [
-    "MobiCash",
-    "MobiCashZen"
-  ],
   "author": "Lev Butkovskiy",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LevButkovskiy/MobiCashZen/issues"
-  },
-  "homepage": "https://github.com/LevButkovskiy/MobiCashZen#readme",
+  "homepage": "https://github.com/LevButkovskiy/bluebeakstd_server#readme",
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",

@@ -1,13 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var morgan = require('morgan');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const createError = require('http-errors');
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const packageJson = require('../package.json');
 
 require('./dbMongo')
 
-var app = express();
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -17,7 +18,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.get('/', (req,res) => {
-    res.send("Hello world");
+    res.send(`
+        <h1>Documentation</h1>
+        <ul>
+            <li>/v1/health/ - 200 if OK</li>
+            <li>/v1/version/ - API Version</li>
+        </ul>
+    `);
+});
+
+app.get('/v1/health', (req,res) => {
+    res.status(200);
+    res.json({success: true})
+});
+
+app.get('/v1/version', (req,res) => {
+    res.status(200);
+    res.json({success: true, version: packageJson.version})
 });
 
 // catch 404 and forward to error handler
