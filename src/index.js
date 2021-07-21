@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.get('/', (req,res) => {
     res.send(`
         <h1>Documentation</h1>
+        <h4>api.bluebeakstd.ru</h4>
         <ul>
             <li>/v1/health/ - 200 if OK</li>
             <li>/v1/version/ - API Version</li>
