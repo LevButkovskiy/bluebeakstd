@@ -5,10 +5,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const packageJson = require('../package.json');
+const bodyParser = require('body-parser');
 
 require('./dbMongo')
 
 const app = express();
+
+app.use('/admin', require('./adminBro'));
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+
+app.use('/v1/user/', require('./mongo/routes/user-routes'));
 
 app.get('/', (req,res) => {
     res.send(`
