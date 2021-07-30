@@ -24,14 +24,19 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use('/v1/user/', require('./mongo/routes/user-routes'));
 
 app.get('/', (req,res) => {
-    res.send(`
-        <h1>Documentation</h1>
-        <h4>api.bluebeakstd.ru</h4>
-        <ul>
-            <li>/v1/health/ - 200 if OK</li>
-            <li>/v1/version/ - API Version</li>
-        </ul>
-    `);
+    res.sendFile(path.join(__dirname, './builds/api/index.html'));
+});
+
+app.get('/static/*', (req,res) => {
+    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
+});
+
+app.get('/images/*', (req,res) => {
+    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
+});
+
+app.get('/locales/*', (req,res) => {
+    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
 });
 
 app.get('/v1/health', (req,res) => {
