@@ -65,7 +65,7 @@ app.use('/v1/*', (req, res, next) => {
     );
 });
 
-app.use('/v1/user/', require('./mongo/routes/users'));
+app.use('/v1/users/', require('./mongo/routes/users'));
 
 
 // catch 404 and forward to error handler
