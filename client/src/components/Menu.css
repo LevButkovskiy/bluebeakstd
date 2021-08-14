@@ -1,0 +1,33 @@
+.menu {
+    width: 250px;
+
+    position: absolute;
+}
+
+.menu > #title {
+    text-align: center;
+    color: #EEEEEE;
+
+    font-size: 18px;
+}
+
+.menuCategory {
+    margin-left: -16px;
+    color: #BDBDBD;
+}
+
+.menuElement {
+    padding: 4px;
+}
+
+.menuElement:hover {
+    color: white;
+}
+
+.menuElement[type ="selected"] {
+    color: white;
+
+    background: #616161;
+    width: 80%;
+    border-radius: 4px;
+}

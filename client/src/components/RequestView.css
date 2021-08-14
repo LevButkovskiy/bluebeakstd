@@ -1,0 +1,30 @@
+.request {
+    margin-bottom: 24px;
+}
+
+.requestMethod {
+    background: #81C784;
+    color: #424242;
+    padding: 6px;
+    border-radius: 4px;
+
+    user-select: none;
+}
+
+.requestUrl {
+    margin-left: 8px;
+
+    color: white;
+}
+
+.requestDescription {
+    color: #BDBDBD;
+}
+
+.requestDescription::before {
+    content: ' - ';
+}
+
+.requestContent {
+    margin-top: 24px;
+}

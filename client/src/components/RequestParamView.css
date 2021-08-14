@@ -1,0 +1,18 @@
+.requestParams {
+    margin-top: 12px;
+}
+
+.requestParamsList {
+    padding: 16px;
+    border-radius: 4px;
+    background: #424242;
+}
+
+.requestParamsTitle {
+    font-weight: bold;
+    color: #EEEEEE;
+}
+
+code {
+    color: white;
+}

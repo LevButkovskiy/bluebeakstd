@@ -1,0 +1,46 @@
+* {
+
+}
+
+html {
+    background: #1a1f36;
+}
+
+ul li {
+    list-style: none;
+}
+
+.skeleton {
+}
+
+.content {
+    background: #2b3359;
+
+    width: calc(100% - 250px);
+    margin-left: 250px;
+}
+
+.content > .header {
+    padding: 16px;
+}
+
+.header > #title {
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.line {
+    width: 200px;
+    height: 2px;
+    background: #1a1f36;
+    border: none;
+
+    margin: 0;
+    width: 100%;
+}
+
+.content > .data {
+    padding: 16px 48px 16px 16px;
+}
