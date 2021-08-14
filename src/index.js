@@ -18,23 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-app.get('/', (req,res) => {
-    res.sendFile(path.join(__dirname, './builds/api/index.html'));
-});
-
-app.get('/static/*', (req,res) => {
-    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
-});
-
-app.get('/images/*', (req,res) => {
-    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
-});
-
-app.get('/locales/*', (req,res) => {
-    res.sendFile(path.join(__dirname, './builds/api/' + req.path));
-});
+app.use(express.static(path.join(__dirname, '../client', 'build')));
 
 app.get('/v1/health', (req,res) => {
     res.status(200);
@@ -49,7 +33,7 @@ app.get('/v1/version', (req,res) => {
 app.use('/v1/auth', require('./mongo/routes/auth'));
 
 app.use('/v1/*', (req, res, next) => {
-    const token = req.header('api-token');
+    const token = req.header('build-token');
 
     verifyToken(token).then(
         (result) => {
