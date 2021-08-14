@@ -5,7 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const packageJson = require('../package.json');
-const bodyParser = require('body-parser');
+const { verifyToken } = require('./jwt');
 
 require('./dbMongo')
 
@@ -19,9 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-
-
-app.use('/v1/user/', require('./mongo/routes/user-routes'));
 
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './builds/api/index.html'));
@@ -48,6 +45,28 @@ app.get('/v1/version', (req,res) => {
     res.status(200);
     res.json({success: true, version: packageJson.version})
 });
+
+app.use('/v1/*', (req, res, next) => {
+    const token = req.header('api-token');
+
+    verifyToken(token).then(
+        (result) => {
+            if (result) {
+                next();
+            }
+            else {
+                return res.status(403);
+            }
+        },
+        (error) => {
+            console.log(error);
+            return res.status(403).json(error);
+        }
+    );
+});
+
+app.use('/v1/user/', require('./mongo/routes/users'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
