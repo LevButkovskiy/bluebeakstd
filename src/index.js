@@ -46,6 +46,8 @@ app.get('/v1/version', (req,res) => {
     res.json({success: true, version: packageJson.version})
 });
 
+app.use('/v1/users/auth', require('./mongo/routes/users'));
+
 app.use('/v1/*', (req, res, next) => {
     const token = req.header('api-token');
 
