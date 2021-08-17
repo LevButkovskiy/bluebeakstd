@@ -33,7 +33,7 @@ app.get('/v1/version', (req,res) => {
 app.use('/v1/auth', require('./mongo/routes/auth'));
 
 app.use('/v1/*', (req, res, next) => {
-    const token = req.header('build-token');
+    const token = req.header('auth-token');
 
     verifyToken(token).then(
         (result) => {

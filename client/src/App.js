@@ -23,18 +23,15 @@ function App(props) {
     }
 
     return (
-      <div className='skeleton'>
-          <Menu onChange={onMenuChange} value={currentView}/>
-          <div className="content">
-              <div className="header">
-                  <span id='title'>{currentView}</span>
-              </div>
-              <hr className="line"/>
-              <div className="data">
-                  {renderView()}
-              </div>
-          </div>
-      </div>
+            <div className="container">
+                <Menu onChange={onMenuChange} value={currentView}/>
+                <div className="content">
+                    <div className='title'>{currentView}</div>
+                    <div className="data">
+                        {renderView()}
+                    </div>
+                </div>
+            </div>
   );
 }
 

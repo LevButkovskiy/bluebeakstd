@@ -3,16 +3,28 @@
 }
 
 .requestParamsList {
-    padding: 16px;
-    border-radius: 4px;
+    padding: 4px 0px;
+    border-radius: 2px;
     background: #424242;
 }
 
 .requestParamsTitle {
+    font-size: 14px;
     font-weight: bold;
     color: #EEEEEE;
 }
 
 code {
     color: white;
+    white-space: pre-wrap;
+
+    font-size: 13px;
+}
+
+blockquote {
+    color: white;
+}
+
+blockquote.non-required {
+    color: darkgray;
 }

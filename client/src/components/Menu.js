@@ -24,6 +24,7 @@ function Menu(props) {
                 {renderElement('user')}
                 {renderElement('auth')}
             </ul>
+            <hr className='menuHr'/>
         </div>
     )
 }

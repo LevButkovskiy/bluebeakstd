@@ -5,7 +5,7 @@ import RequestParamView from "../RequestParamView";
 function AuthRoutes() {
     return (
         <ul>
-            <li className="request">
+            <li>
                 <RequestView
                     method="POST"
                     url="/v1/auth"

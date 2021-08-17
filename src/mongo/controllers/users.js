@@ -54,11 +54,16 @@ module.exports = {
 
             user.email = req.body.email || user.email;
             user.role = req.body.role || user.role;
+            user.photoPath = req.body.photoPath || user.photoPath;
 
             user.save( (saveError, updatedUser) => {
                 if (saveError) {
                     return res.status(405).json(saveError)
                 }
+
+                updatedUser = updatedUser.toJSON();
+                delete updatedUser.encryptedPassword;
+
                 return res.status(200).json(updatedUser)
             });
         })
@@ -75,7 +80,7 @@ module.exports = {
                 return res.status(404).json(error);
             }
 
-            return res.status(204);
+            return res.status(204).json(null);
 
         })
     }
