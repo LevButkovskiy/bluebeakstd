@@ -5,8 +5,7 @@ module.exports = {
         const username = req.body.username;
         const name = req.body.name;
         const country_code = req.body.country_code;
-        const start_date = req.body.start_date;
-
+        console.log(req.body)
 
         BuhBuh.findOne({username}).exec((error, rawUser) => {
             if (error) {
