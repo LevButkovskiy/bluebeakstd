@@ -32,7 +32,7 @@ module.exports = {
             else {
                 const newUser = {
                     username,
-                    name
+                    name,
                     country_code,
                     start_date: req.body.date,
                     actions: [{date: req.body.date, action: req.body.action}]
