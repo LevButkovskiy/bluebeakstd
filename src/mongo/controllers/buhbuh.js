@@ -10,6 +10,7 @@ module.exports = {
 
         BuhBuh.findOne({username}).exec((error, rawUser) => {
             if (error) {
+                console.log(error)
                 return res.status(405).json(error)
             }
 
@@ -21,6 +22,7 @@ module.exports = {
 
                 rawUser.save( (saveError, updatedUser) => {
                     if (saveError) {
+                        console.log(saveError)
                         return res.status(405).json(saveError)
                     }
 
@@ -40,6 +42,7 @@ module.exports = {
 
                 BuhBuh.create(newUser, (error, createdUser) => {
                     if (error) {
+                        console.log(error)
                         return res.status(405).json(error);
                     }
                     return res.status(201).json(createdUser);
