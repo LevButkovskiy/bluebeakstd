@@ -7,9 +7,10 @@ AdminBro.registerAdapter(AdminBroMongoose);
 const bcrypt = require('bcrypt');
 
 const Users = require('../mongo/schemas/users');
+const BuhBuh = require('../mongo/schemas/buhbuh');
 
 const adminBro = new AdminBro({
-    resources: [ Users ],
+    resources: [ Users, BuhBuh ],
     rootPath: '/admin',
     branding: {
         companyName: 'BlueBeak.std',
@@ -22,6 +23,9 @@ module.exports = AdminBroExpress.buildAuthenticatedRouter(adminBro,{
         if (user) {
             const matched = await bcrypt.compare(password, user.encryptedPassword)
             if (matched) {
+                return user
+            }
+            else {
                 return user
             }
         }
